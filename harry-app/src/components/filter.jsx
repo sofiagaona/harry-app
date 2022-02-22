@@ -68,12 +68,12 @@ export const Filter = () => {
                     key={character.name}
                     {...character}
                   />))
-                  : click===2 ? student.map((character) => (
+                  :  student.map((character) => (
                     <Cards
                       key={character.name}
                       {...character}
                     />
-                  )) :<h3>termine</h3>}
+                  )) }
           </section>
         </>
     )

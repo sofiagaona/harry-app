@@ -1,0 +1,205 @@
+{
+  "characteres": [
+    {
+      "name": "prueb",
+      "dateOfBrithday": "23-5-98",
+      "eyesColour": "cafe",
+      "haireColour": "cafe",
+      "gender": "feamle",
+      "position": "student",
+      "picture": ""
+    },
+    {
+      "id": "121212",
+      "birthday": "26-05-83",
+      "eyesColour": "cafe",
+      "gender": "female",
+      "haireColour": "cafe",
+      "name": "sofia",
+      "picture": "C:\\fakepath\\Ellipse 47.png",
+      "position": "student"
+    },
+    {
+      "formValue": {
+        "id": "1",
+        "name": "Card Validetion",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "male",
+        "position": "student",
+        "picture": "C:\\fakepath\\Ellipse 47.png"
+      },
+      "id": "1p_gj_Z"
+    },
+    {
+      "formValue": {
+        "id": "d78c7f8-4668-604b-4347-8a30b3c2e4ef",
+        "name": "sofia",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "female",
+        "position": "student",
+        "picture": "C:\\fakepath\\Ellipse 47.png"
+      },
+      "id": "SUgamKE"
+    },
+    {
+      "formValue": {
+        "id": "ce4c8bd-11ff-e1a8-557a-7a5e2737436",
+        "name": "Feedback BootCamp",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "male",
+        "position": "student",
+        "picture": "C:\\fakepath\\Ellipse 47.png"
+      },
+      "id": "jdSTSft"
+    },
+    {
+      "formValue": {
+        "id": "5b312c6-266e-a1f0-871-df5841ba4a0d",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "-f1z3Tt"
+    },
+    {
+      "formValue": {
+        "id": "752166-3c00-5116-55e4-8d88c4ed5e4",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "8n2RhbS"
+    },
+    {
+      "formValue": {
+        "id": "ba8677-aa4b-0a4b-72ff-e7a6566be37",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "6U2v_Bf"
+    },
+    {
+      "formValue": {
+        "id": "c663661-16fa-b6aa-68ab-22b8c2f0fb83",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "lOdxKxu"
+    },
+    {
+      "formValue": {
+        "id": "44af1-e376-4d74-71c-dfef8ecaf6",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "Jdr5hes"
+    },
+    {
+      "formValue": {
+        "id": "f010f66-b7ce-168f-5fa-a56f5fb7dedd",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "3RELBeJ"
+    },
+    {
+      "formValue": {
+        "id": "ff36371-87cb-eeb8-87ff-d0d40888e1e6",
+        "name": "Card Validetion",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "male",
+        "position": "staff",
+        "picture": "C:\\fakepath\\Ellipse 47.png"
+      },
+      "id": "FFOi0vL"
+    },
+    {
+      "formValue": {
+        "id": "74a7713-f218-300-82b8-38405e6c53d",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "student",
+        "picture": ""
+      },
+      "id": "lLRa1kT"
+    },
+    {
+      "formValue": {
+        "id": "3203-2c1-76f1-83f5-33db7a2c6a",
+        "name": "",
+        "birthday": "",
+        "eyesColour": "",
+        "haireColour": "",
+        "gender": "",
+        "position": "",
+        "picture": ""
+      },
+      "id": "Elz5FnD"
+    },
+    {
+      "formValue": {
+        "id": "8bf0cee-45a5-7d7-4c2-a3152fab86f1",
+        "name": "juan",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "male",
+        "position": "staff",
+        "picture": "C:\\fakepath\\Squat.png"
+      },
+      "id": "vaeJz-c"
+    },
+    {
+      "formValue": {
+        "id": "365576-0661-7e3-7fbf-67de3f10751d",
+        "name": "prueba final",
+        "birthday": "26-05-83",
+        "eyesColour": "cafe",
+        "haireColour": "cafe",
+        "gender": "female",
+        "position": "student",
+        "picture": ""
+      },
+      "id": "EWKm2fO"
+    }
+  ]
+}

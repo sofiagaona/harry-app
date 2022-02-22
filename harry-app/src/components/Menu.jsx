@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Rectangule1 from "../assets/Rectangle1.png"
 import addCharacter from "../assets/User_fill_add.png"
 import "./Menu.scss";
-// import ModalReact from "./ModalAddCharacter";
-// import { ModalCharacter } from "./ModalCharact";
-// import Modal from "./ModalCharact"
+import Modal from "./ModalCharact"
 
 
 export const Menu = () => {
@@ -37,13 +35,13 @@ export const Menu = () => {
           <li>
             <button type="button" className="btn-add" onClick={openModal}>AGREGAR
               <span><img src={addCharacter} alt="" /> </span>
-              {/* {modalIsOpen && (
+              {modalIsOpen && (
                 
                 <Modal
                   isVisible={modalIsOpen}
                   handleModal={handleModal}
                   />
-              )} */}
+              )}
             </button>
           </li>
 

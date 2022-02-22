@@ -1,0 +1,88 @@
+
+h2{
+    color: hsla(200, 19%, 18%, 1);
+}
+.modal {
+    display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+    
+   
+  }
+  .raw-item {  
+    
+    display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+    
+    }
+  
+  .box-btn-close{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    }
+  .closeButton{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.modal label{
+    
+    color: hsla(200, 19%, 18%, 1);
+    width: 80%;
+    margin-top: 5%;
+    
+    //margin-left: 10px;
+}
+.modal input{
+    font-size: 14px;
+    color: hsla(200, 19%, 18%, 1);
+    padding: 3%;
+    margin-top: 5%;
+    width: 80%;
+    background-color: #2632381a;
+   border-radius: 5.33333px 5.33333px 0px 0px;
+    border:none;
+}
+
+.btn-radio{
+   margin-right: 30px;
+   margin-top: 20px;
+}
+.input-file label{
+  width: 20%;
+  margin-top: 5%;
+  
+}
+.input-file input{
+    background-color: white;
+    padding: 0%;
+  }
+.btn-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.btn-submit button{
+    background: rgba(0, 0, 0, 0.6);
+    border: 4px solid #6B63B5;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 288px;
+    height: 67px;
+}
+
+
+
+
+
+
+
+
+
