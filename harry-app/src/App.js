@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './App.scss';
+import title from './assets/Harry_Potter_wordmark1.png';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  return(
+    <div className="title">
+        <img src={title} alt="titulo Harry Potter"></img>
+        <h2>Selecciona tu filtro</h2>
+      </div>
+  )
+  
 }
 
 export default App;

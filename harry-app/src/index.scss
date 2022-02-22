@@ -1,0 +1,19 @@
+$font-stack: Open Sans, Helvetica, sans-serif;
+$background-color:rgba(0, 0, 0, 0.799);
+$colorText:hsla(0, 0%, 100%, 1);
+
+
+*{
+  margin: 0%;
+  padding: 0%;
+  list-style:none;
+}
+
+
+body {
+    font: 100% $font-stack;
+    background-image: url('../src/assets/Background.png');
+    object-fit: cover;
+    background-color: $background-color;
+    color:$colorText;
+  }
