@@ -2,7 +2,6 @@
 import './App.scss';
 import { Menu } from './components/Menu';
 import title from './assets/Harry_Potter_wordmark1.png';
-import { Cards } from './components/cards';
 import { Filter } from './components/filter';
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
         <h2>Selecciona tu filtro</h2>
       </div>
      <Filter/>
-      <Cards/>
+   
     </>
   )
 }

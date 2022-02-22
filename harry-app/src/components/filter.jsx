@@ -35,7 +35,8 @@ export const Filter = () => {
                        'house':character.house, 
                        'image':character.image,
                        'hogwartsStaff':character.hogwartsStaff,
-                       'hogwartsStudent':character.hogwartsStudent
+                       'hogwartsStudent':character.hogwartsStudent,
+                       'alive':character.alive
                        
         });
         });
