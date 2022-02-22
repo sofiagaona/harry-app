@@ -1,0 +1,49 @@
+
+
+
+.card {
+    display: -webkit-flex;
+	display: flex;
+    -webkit-flex-direction: row;
+	flex-direction: row;
+    width: 30%;
+    margin-top: 5%;
+    margin-left: 5%;
+    
+ }
+
+ .card__pic{
+     display: flex;
+     flex-direction: column;
+     width: 50%;
+     background-color: blue;
+     justify-content: center;
+     align-items: center;
+     border-bottom-left-radius: 10%;
+     border-top-left-radius: 10%;
+ }
+
+ .card__info{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color:burlywood;
+    border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+  padding: 5%;
+  
+}
+.card__info p {
+    font-size: .8rem;
+}
+.card__info h3 {
+    margin-top: 5%;
+   margin-bottom: 5%;
+}
+
+  .card__pic> img{
+         width: 50%;
+         height: 50%;
+         border-radius: 50%;
+        
+     }

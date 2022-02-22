@@ -1,16 +1,22 @@
 
 import './App.scss';
+import { Menu } from './components/Menu';
 import title from './assets/Harry_Potter_wordmark1.png';
+import { Cards } from './components/cards';
+import { Filter } from './components/filter';
 
 function App() {
-
-  return(
-    <div className="title">
+  return (
+    <>
+      <Menu />
+      <div className="title">
         <img src={title} alt="titulo Harry Potter"></img>
         <h2>Selecciona tu filtro</h2>
       </div>
+     <Filter/>
+      <Cards/>
+    </>
   )
-  
 }
 
 export default App;

@@ -1,0 +1,95 @@
+$colorBttn: hsla(246, 36%, 55%, 1);
+$colorText:hsla(0, 0%, 100%, 1);
+$sizeText:14px;
+
+.flex-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    //margin-left: 40%;
+    position: -webkit-fixed;
+    position: fixed;
+    top:-1px;
+    z-index: 1;
+   
+}
+
+button{
+    background-color: $colorBttn;
+    color: $colorText;
+    text-align: center;
+    font-size: $sizeText;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 281px;
+    height: 36px;
+    border: none;
+   
+}
+span{
+    margin-left: 5%;
+}
+
+.btn-favorite{
+    border-bottom-left-radius: 20px;
+    
+}
+.btn-add{
+    border-bottom-right-radius: 20px;
+}
+
+//menu desplegable
+
+.menu ul {
+    list-style:none;
+    margin-left: 40%;
+    padding:0;
+   }
+  #sub-menu{
+    list-style:none;
+    margin-left: 0%;
+    padding:0;
+    border-radius: 10px; 
+  } 
+      
+   .menu ul a {
+    display:block;
+    color:$colorText;
+    text-decoration:none;
+    font-weight:400;
+    font-size:15px;
+    padding:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+   }
+   
+   /* items del menu */
+   
+//    .menu ul li {
+//     //position:relative;
+//     //float:left;
+//     margin:0;
+//     padding:0;
+//    }
+   
+.menu ul ul {
+    display:none;
+    //position:absolute;
+    top:100%;
+    left:0;
+    background:$colorBttn;
+    width: 200%;
+    
+   }
+    
+//    .menu ul ul li {
+//     float:none;
+//    }
+      
+   .menu ul ul a {
+    line-height:120%;
+    padding:10px 15px;
+   }
+   
+   .menu ul li:hover > ul {
+    display:block;
+   }
