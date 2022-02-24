@@ -100,7 +100,7 @@ export const Cards =({list})=>{
                        <div className="header_info">
                           <div><p>Muerto / </p></div>
                          
-                          <div><img  id="btn-add-favorite" onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
+                          <div><img   onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
                       </div>
                    <h5>{character.name}</h5>
                    <div className="box-info">

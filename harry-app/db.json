@@ -549,6 +549,32 @@
       "actor": "David Bradley",
       "alive": true,
       "image": "http://hp-api.herokuapp.com/images/filch.jpg"
+    },
+    {
+      "id": "l011rmzu",
+      "name": "Prueba",
+      "dateOfBirth": "26-mayo-83",
+      "eyeColour": "cafe",
+      "hairColour": "cafe",
+      "gender": "female",
+      "hogwartsStudent": "",
+      "hogwartsStaff": "true",
+      "image": "",
+      "house": "Hogwarts",
+      "alive": "true"
+    },
+    {
+      "id": "l013ke0i",
+      "name": "sofia Herrera",
+      "dateOfBirth": "26-mayo-83",
+      "eyeColour": "cafe",
+      "hairColour": "cafe",
+      "gender": "female",
+      "hogwartsStudent": "",
+      "hogwartsStaff": "true",
+      "image": "",
+      "house": "Hogwarts",
+      "alive": ""
     }
   ]
 }

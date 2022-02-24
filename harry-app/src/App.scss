@@ -5,12 +5,15 @@ $colorText:hsla(0, 0%, 100%, 1);
 body {
     font: 100% $font-stack;
     background-image: url('../src/assets/Background.png');
-    object-fit: cover;
+    object-fit:cover;
+    background-repeat: no-repeat;
     background-color: $background-color;
     color:$colorText;
-  
-    width: 100%;
-    overflow-x: hidden;
+     -webkit-background-size: 100% 100%;           /* Safari 3.0 */
+     -moz-background-size: 100% 100%;           /* Gecko 1.9.2 (Firefox 3.6) */
+      -o-background-size: 100% 100%;           /* Opera 9.5 */
+       background-size: 100% 100%; 
+       overflow-x: hidden;
    
   }
  
