@@ -2,8 +2,8 @@ import React, { useEffect, useReducer } from "react";
 import './cards.scss'
 import Rectangule1 from "../assets/Rectangle 1.svg"
 import { favoriteReducer } from "../reducers/favoriteReducer";
-
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 
 
@@ -49,7 +49,12 @@ export const Cards =({list})=>{
             }
 
             else{
-                alert('Solo puedes grabar 5 personajes en favoritos')
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Tu lista de favoritos esta llena, si requieres guardar uno mas, necesitas borrar algunn personaje de tu lista!',
+                    
+                  })
             }
         }
             
