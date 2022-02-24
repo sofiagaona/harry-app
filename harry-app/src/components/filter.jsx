@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Cards } from "./cards";
 
 
+
 export const Filter = () => {
 
   const [staff, setStaff]= useState([]);
@@ -63,17 +64,14 @@ export const Filter = () => {
 
           </section>
            <section>
-              {click===1 ? staff.map((character) => (
+                  {click===1 ? 
                   <Cards
-                    key={character.name}
-                    {...character}
-                  />))
-                  :  student.map((character) => (
-                    <Cards
-                      key={character.name}
-                      {...character}
-                    />
-                  )) }
+                    list={staff}
+                  />
+                  : <Cards
+                  list={student}
+                /> }
+                   
           </section>
         </>
     )

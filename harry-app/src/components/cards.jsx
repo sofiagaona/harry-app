@@ -1,87 +1,117 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/style-prop-object */
-import React from "react";
+import React, { useEffect, useReducer } from "react";
 import './cards.scss'
-import PropType from "prop-types"
 import Rectangule1 from "../assets/Rectangle 1.svg"
+import { favoriteReducer } from "../reducers/favoriteReducer";
 
-export const Cards=({
-    name="",
-    dateOfBirth="",
-    gender="", 
-    eyeColour="",
-    hairColour="", 
-    house="",
-    image="",
-    hogwartsStaff="",
-    hogwartsStudent="",
-    alive=""})=>{
+import { useDispatch, useSelector } from 'react-redux'
 
-let status = ''
 
-if(hogwartsStaff){
-    status='Staff';
-    
+
+const init=()=>{
+ return JSON.parse(localStorage.getItem("favorite")) || [];
 }
-else{
-    status='Estudiante';
+
+export const Cards =({list})=>{
+  
+   const [state] = useReducer(favoriteReducer,[],init);
+   const dispatche=useDispatch();
+
+   const data = useSelector(state=>{
+    return state
+  })
+  const dataFavorites=(data['favorite']);
+
+               
    
-}
+   useEffect(()=>{
+      localStorage.setItem("favorite", JSON.stringify(state));
+     },[state])
 
+      
+      const handeleFavorite=(name, image)=>{
 
-
-        const handeleFavorite=()=>{
-            console.log('si entra');
-        }
-
-    return(
-        <>
-    <div className="cointeiner">
-        <div  className="card">
-            {house==='Slytherin'?<div className="slytherin card__pic"><img src={image} className="card__image" alt="img personaje" /></div> 
-                  : house==='Gryffindor' ? <div className="gryffindor card__pic"><img src={image} className="card__image" alt="img personaje" /></div>
-                   :house==='Hufflepuff'?<div className="gryffindor card__pic"><img src={image} className="card__image" alt="img personaje" /></div>
-                   :<div className="ravenclaw card__pic"><img src={image} className="card__image" alt="img personaje" /></div>
+            if(dataFavorites.length<=4){
+                   
+        
+                    const newFavorite={
+                        img:image,
+                        name:name
+                    };
+                  
+        
+                    const action ={
+                        type:'ADD',
+                        payload:newFavorite
+                    };
+        
+                    dispatche(action);
+                    
             }
 
-            {alive?<div className="card__info">
+            else{
+                alert('Solo puedes grabar 5 personajes en favoritos')
+            }
+        }
+            
+
+    return (
+        <>
+        <ul>
+         {list.map((character) => (
+             
+                  
+                      <li key={character.name}>
+                      
+                      <div className="cointeiner">
+      <div  className="card">
+           {character.house==='Slytherin'?<div className="slytherin card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div> 
+                  : character.house==='Gryffindor' ? <div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
+                   :character.house==='Hufflepuff'?<div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
+                   :<div className="ravenclaw card__pic"><img  src={character.image} className="card__image" alt="img personaje" /></div>
+            }
+
+            {character.alive?<div className="card__info">
                       <div className="header_info">
-                          <div><p>Vivo / {status}</p></div>
-                          <div><img onClick={handeleFavorite} src={Rectangule1} /></div>
+                          <div><p>Vivo / </p></div>
+                          <div><img onClick={ () => { handeleFavorite(character.name, character.image); } } src={Rectangule1} />
+                         </div> 
                       </div>
-                       <h5>{name}</h5>
+                       <h5>  {character.name} </h5>
                        <div className="box-info">
-                          <p>Cumple Años:<span>{dateOfBirth}</span></p>
-                          <p>Genero:<span>{gender}</span></p>
-                          <p>Color de ojos:<span>{eyeColour}</span></p>
-                          <p>Color de Pelo:<span>{hairColour}</span></p>
+                          <p>Cumple Años:<span>{character.dateOfBirth}</span></p>
+                          <p>Genero:<span>{character.gender}</span></p>
+                          <p>Color de ojos:<span>{character.eyeColour}</span></p>
+                          <p>Color de Pelo:<span>{character.hairColour}</span></p>
                        </div>
                    </div> 
                   
                    :
                    <div className=" dead card__info">
                        <div className="header_info">
-                          <div><p>Muero / {status}</p></div>
-                          <div><img onClick={handeleFavorite} src={Rectangule1} /></div>
+                          <div><p>Muerto / </p></div>
+                         
+                          <div><img onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
                       </div>
-                   <h5>{name}</h5>
+                   <h5>{character.name}</h5>
                    <div className="box-info">
-                      <p>Cumple Años:<span>{dateOfBirth}</span></p>
-                      <p>Genero:<span>{gender}</span></p>
-                      <p>Color de ojos:<span>{eyeColour}</span></p>
-                      <p>Color de Pelo:<span>{hairColour}</span></p>
+                      <p>Cumple Años:<span>{character.dateOfBirth}</span></p>
+                      <p>Genero:<span>{character.gender}</span></p>
+                      <p>Color de ojos:<span>{character.eyeColour}</span></p>
+                      <p>Color de Pelo:<span>{character.hairColour}</span></p>
                    </div>
+                  
                </div> 
+
+               
             } 
           
         </div>
-    </div>  
-
+    
+      </div>  
+     </li>
+                  ))}
+    </ul>
     </>
     )
-    // eslint-disable-next-line no-unreachable
-    Cards.prototype={
-        name:PropType.string.isRequired
-    }
-    
 }
+
