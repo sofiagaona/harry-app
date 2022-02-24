@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 
 
+
 const init=()=>{
  return JSON.parse(localStorage.getItem("favorite")) || [];
 }
@@ -62,13 +63,17 @@ export const Cards =({list})=>{
     return (
         <>
         <ul>
+            <div class="card-1">
+            
+           
+           
+            
          {list.map((character) => (
-             
-                  
-                      <li key={character.name}>
+<div className="card-col2">
+     <li key={character.name}>
                       
-                      <div className="cointeiner">
-      <div  className="card">
+        
+        <div  className="card">
            {character.house==='Slytherin'?<div className="slytherin card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div> 
                   : character.house==='Gryffindor' ? <div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
                    :character.house==='Hufflepuff'?<div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
@@ -95,7 +100,7 @@ export const Cards =({list})=>{
                        <div className="header_info">
                           <div><p>Muerto / </p></div>
                          
-                          <div><img onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
+                          <div><img  id="btn-add-favorite" onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
                       </div>
                    <h5>{character.name}</h5>
                    <div className="box-info">
@@ -112,9 +117,10 @@ export const Cards =({list})=>{
           
         </div>
     
-      </div>  
+     
      </li>
-                  ))}
+     </div>            ))}
+    </div>
     </ul>
     </>
     )

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Modal from 'react-modal';
 import axios from "axios";
-import uuid from 'react-uuid';
+import uniqid from 'uniqid';
 import './ModalAddCharacter.scss';
 
 const customStyles = {
@@ -19,17 +19,23 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 const ModalCharacter=( {isVisible, handleModal} )=>{
-    const [modalIsOpen, setIsOpen] = useState(isVisible);    
+    const [modalIsOpen, setIsOpen] = useState(isVisible);  
     const [formValue, setFormValue]= useState({
-        "id":uuid(),
+        "id":uniqid (),
         "name":"",
-        "birthday":"",
-        "eyesColour":"",
-        "haireColour":"",
+        "dateOfBirth":"",
+        "eyeColour":"",
+        "hairColour":"",
         "gender":"",
-        "position":"",
-        "picture":""
+        "hogwartsStudent":"",
+        "hogwartsStaff": "",
+        "image":"",
+        "house":"",
+        "alive":""
     })
+
+    const [fileUrl, setFileUrl] = useState(null);
+    console.log(fileUrl)
 
     const EventInputChange=({target})=>{
          setFormValue({
@@ -39,6 +45,7 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
     }
 
     function closeModal() {
+      window.location.reload(true);
         handleModal();
         setIsOpen(false);
        
@@ -47,21 +54,26 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
   const fnheandleSubmit =  (e) => {
         e.preventDefault();
         console.log(formValue);
-        axios.post(` http://localhost:3000/characteres`, { formValue })
+        axios.post(` http://localhost:3000/characteres`, [formValue][0])
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
+      window.location.reload(true);
       closeModal();
         
       };
 
+      function processImage(event){
+         const imageFile = event.target.files[0];
+         console.log(imageFile.name);
+         const imageUrl = URL.createObjectURL(imageFile);
+         setFileUrl(imageUrl)
+      }
  
  return (
     <Modal
     isOpen={modalIsOpen}
-    // onAfterOpen={afterOpenModal}
-    //onRequestClose={closeModal}
     style={ customStyles }
     closeTimeoutMS={200}
   >
@@ -77,7 +89,7 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
                     <input type="text" name="name" onChange={EventInputChange} />
                  </label>
                  <label>CUMPLEAÑOS:
-                    <input type="text" name="birthday" onChange={EventInputChange} />
+                    <input type="text" name="dateOfBirth" onChange={EventInputChange} />
                     
                  </label>
                  </div>
@@ -85,10 +97,29 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
                <div className="modal">
                <div className="raw-item">
                   <label>COLOR DE OJOS:
-                      <input type="text" name="eyesColour" onChange={EventInputChange} />
+                      <input type="text" name="eyeColour" onChange={EventInputChange} />
                   </label>
                   <label>COLOR DE PELO:
-                      <input type="text" name="haireColour" onChange={EventInputChange}/>
+                      <input type="text" name="hairColour" onChange={EventInputChange}/>
+                  </label>
+                  </div>
+              </div>
+              <div className="modal">
+               <div className="raw-item">
+                  <label> Casa:
+                  <select  name="house" onClick={EventInputChange}>
+                       <option  value="Hogwarts">Hogwarts</option>
+                       <option value="Hufflepuff">Hufflepuff</option>
+                       <option value="Revendaw">Revendaw</option>
+                       <option value="Slytherin">Slytherin</option>
+                   </select>
+                  </label>
+                  <label>Vivo:
+                  <select name="alive" onClick={EventInputChange}>
+                       <option value={true}>Si</option>
+                       <option   value={false}>No</option>
+                      
+                   </select>
                   </label>
                   </div>
               </div>
@@ -111,12 +142,12 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
                    
                   <div className="raw-item" >   
                     <div className="raw-item btn-radio">
-                       <input type="radio" id="student" name="position" onChange={EventInputChange} value="student"  />
+                       <input type="radio" id="student" name="hogwartsStudent" onChange={EventInputChange} value={true}  />
                        <label  htmlFor="student">Estudiante </label>
                     </div>
 
                        <div className="raw-item btn-radio">
-                           <input type="radio" id="staff" name="position" onChange={EventInputChange} value="staff" /> 
+                           <input type="radio" id="staff" name="hogwartsStaff" onChange={EventInputChange} value={true} /> 
                            <label htmlFor="staff">Staff</label>  
                         </div>
                   </div>
@@ -126,8 +157,8 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
               </div>
                <div className="modal">
                    <div className="raw-item input-file">
-                       <label  htmlFor="picture">FOTOGRAFIA </label>
-                       <input type="file" id="picture" name="picture" onChange={EventInputChange} />
+                       <label  htmlFor="image">FOTOGRAFIA </label>
+                       <input type="file" id="image" name="image" accept="image/png"   onChange={processImage}/>
                     </div>
                </div>
                <div className="btn-submit">

@@ -14,17 +14,19 @@ export const Filter = () => {
   useEffect(()=>{
     fnFilterStaff()
     .then(doc=>{
-      const filterSaff = doc.filter((staff)=>{return staff.hogwartsStaff===true})
+      const filterSaff = doc.filter((staff)=>{return staff.hogwartsStaff===true || staff.hogwartsStaff==="true"})
       setStaff(filterSaff)
 
-      const filterStudent = doc.filter((student)=>{return student.hogwartsStudent===true})
+      const filterStudent = doc.filter((student)=>{return student.hogwartsStudent===true || student.hogwartsStudent==="true" })
       setStudent(filterStudent )})
+      
   },[])
 
     async function fnFilterStaff (){
       try{
-        let respons= await axios.get(`./data/hp-characters.json`);
+        let respons= await axios.get(`http://localhost:3000/characteres`);
         let data = respons.data;
+        
         const document = [];
          data.forEach((character) => {
         document.push({
@@ -41,7 +43,7 @@ export const Filter = () => {
                        
         });
         });
-        
+       
         return document
       }
       catch(error){
@@ -54,11 +56,11 @@ export const Filter = () => {
         <>
           <section className="flex-filter">
               <button 
-                   className="btn-filter"
+                   id="btn-filter"
                    onClick={() => {setClick(1);}}> Staff
               </button>
               <button 
-                  className="btn-filter" 
+                  id="btn-filter" 
                   onClick={() => {setClick(2);}}>Estudiante
               </button>
 
@@ -68,6 +70,7 @@ export const Filter = () => {
                   <Cards
                     list={staff}
                   />
+                  
                   : <Cards
                   list={student}
                 /> }

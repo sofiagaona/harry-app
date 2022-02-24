@@ -38,7 +38,7 @@ export const Menu = () => {
   }
 
   function delateFavorite(name){
-     console.log(name);
+   
      const deleteCharacter={
            name:name
   };
@@ -87,7 +87,7 @@ export const Menu = () => {
            
           </li>
           <li>
-            <button type="button" className="btn-add" onClick={openModal}>AGREGAR
+            <button type="button" className="btn-add button" onClick={openModal}>AGREGAR
               <span><img src={addCharacter} alt="" /> </span>
               {modalIsOpen && (
                 

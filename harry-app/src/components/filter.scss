@@ -7,16 +7,16 @@ $bttn-Active:#6B63B5;
     justify-content: center;
     
 }
-.btn-filter{
+#btn-filter{
     margin-right: 5%;
     background-color:rgba(0, 0, 0, 0.6);
     border-radius: 4px;
     border: 2px solid $colorBorder;
 }
 
-.btn-filter:hover{
+#btn-filter:hover{
     background-color:$bttn-hover;
 }
-.btn-filter:focus{
+#btn-filter:focus{
     background-color:$bttn-Active;
 }
