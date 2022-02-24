@@ -136,3 +136,42 @@ span{
    .menu ul li:hover > ul {
     display:block;
    }
+
+$small: 600px;
+$medium: 900px;
+$xsmal:100px;
+
+.smth {
+  
+  @media screen and (max-width: $small) and (min-width: $xsmal) {
+    //do Smth
+  }
+  @media screen and (max-width: $medium )and (min-width: $small){
+   
+    
+    .flex-menu{
+       margin-left: 25%;
+       }
+    .box_favorites_row{
+        display: flex;
+        flex-direction: row;
+        max-width: 150px;
+    }
+     .box_favorites_row p {
+       font-size: .8rem;
+    }
+    
+    button{
+       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        width: 181px;
+        height: 26px;
+    }
+     .btn-favorite{
+        border-bottom-left-radius: 10px;
+        
+    }
+    .btn-add{
+        border-bottom-right-radius: 10px;
+    }
+  }
+}

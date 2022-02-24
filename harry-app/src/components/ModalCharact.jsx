@@ -54,7 +54,7 @@ const ModalCharacter=( {isVisible, handleModal} )=>{
   const fnheandleSubmit =  (e) => {
         e.preventDefault();
         console.log(formValue);
-        axios.post(` http://localhost:3000/characteres`, [formValue][0])
+        axios.post(` https://apiharry.herokuapp.com/characteres`, [formValue][0])
       .then(res => {
         console.log(res);
         console.log(res.data);

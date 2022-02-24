@@ -55,25 +55,21 @@ export const Menu = () => {
   const listCharacteres=()=>{
     
    if(dataFavorites.length===0){
-    Swal.fire(
-     
-      "No tienes ningun personaje marcado en lista de favoritos, por favor selecciona uno para visualizar lista",
-      'success'
-    )
+    Swal.fire('No existen personajes en lista de favoritos')
     
    }
   }
      
 
     return(
-        <><nav className="menu">
-        <ul className="flex-menu">
-          <li> <button onClick={listCharacteres} className="btn-favorite"> FAVORITOS <span><img src={Rectangule1} alt="" /></span></button>
+        <><nav className="menu smth">
+        <ul className="flex-menu smth">
+          <li> <button onClick={listCharacteres} className="btn-favorite smth"> FAVORITOS <span><img src={Rectangule1} alt="" /></span></button>
              <ul>
                   {dataFavorites.map((character)=>(
                   <li>
                    
-                      <div className="box_favorites_row">
+                      <div className="box_favorites_row smth">
                           <img  src={character.img}  alt="img personaje" />
                           <p>{character.name}</p>
                           <img onClick={ () => { delateFavorite(character.name); } } src={trash}  alt="img trash" />
@@ -87,7 +83,7 @@ export const Menu = () => {
            
           </li>
           <li>
-            <button type="button" className="btn-add button" onClick={openModal}>AGREGAR
+            <button type="button" className="btn-add button smth" onClick={openModal}>AGREGAR
               <span><img src={addCharacter} alt="" /> </span>
               {modalIsOpen && (
                 

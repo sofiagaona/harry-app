@@ -24,7 +24,7 @@ export const Filter = () => {
 
     async function fnFilterStaff (){
       try{
-        let respons= await axios.get(`http://localhost:3000/characteres`);
+        let respons= await axios.get(`https://apiharry.herokuapp.com/characteres`);
         let data = respons.data;
         
         const document = [];
@@ -55,14 +55,15 @@ export const Filter = () => {
     return(
         <>
           <section className="flex-filter">
+          <button 
+                  id="btn-filter" 
+                  onClick={() => {setClick(2);}}>Estudiante
+              </button>
               <button 
                    id="btn-filter"
                    onClick={() => {setClick(1);}}> Staff
               </button>
-              <button 
-                  id="btn-filter" 
-                  onClick={() => {setClick(2);}}>Estudiante
-              </button>
+              
 
           </section>
            <section>

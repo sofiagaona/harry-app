@@ -74,14 +74,14 @@ export const Cards =({list})=>{
                       
         
         <div  className="card">
-           {character.house==='Slytherin'?<div className="slytherin card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div> 
-                  : character.house==='Gryffindor' ? <div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
-                   :character.house==='Hufflepuff'?<div className="gryffindor card__pic"><img src={character.image} className="card__image" alt="img personaje" /></div>
-                   :<div className="ravenclaw card__pic"><img  src={character.image} className="card__image" alt="img personaje" /></div>
+           {character.house==='Slytherin'?<div className="slytherin card__pic "><img src={character.image} className="card__image" alt="img personaje" /></div> 
+                  : character.house==='Gryffindor' ? <div className="gryffindor card__pic "><img src={character.image} className="card__image " alt="img personaje" /></div>
+                   :character.house==='Hufflepuff'?<div className="gryffindor card__pic"><img src={character.image} className="card__image " alt="img personaje" /></div>
+                   :<div className="ravenclaw card__pic "><img  src={character.image} className="card__image smth" alt="img personaje " /></div>
             }
 
             {character.alive?<div className="card__info">
-                      <div className="header_info">
+                      <div className="header_info ">
                           <div><p>Vivo / </p></div>
                           <div><img onClick={ () => { handeleFavorite(character.name, character.image); } } src={Rectangule1} />
                          </div> 
@@ -100,7 +100,7 @@ export const Cards =({list})=>{
                        <div className="header_info">
                           <div><p>Muerto / </p></div>
                          
-                          <div><img   onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
+                          <div><img  id="btn-add-favorite" onClick={ () => {  handeleFavorite(character.name, character.image); } } src={Rectangule1} /></div> 
                       </div>
                    <h5>{character.name}</h5>
                    <div className="box-info">
