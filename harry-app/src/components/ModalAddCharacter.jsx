@@ -17,11 +17,9 @@ const customStyles = {
   },
 };
 
-if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#root");
 
-
-const ModalCharacter = ({ isVisible, handleModal }) => {
-  const [modalIsOpen, setIsOpen] = useState(isVisible);
+export const ModalAddCharacter = ({ modalIsOpen, closeModal }) => {
   const [formValue, setFormValue] = useState({
     id: uniqid(),
     name: "",
@@ -37,26 +35,19 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
   });
 
   const EventInputChange = ({ target }) => {
+    const key = target.name;
+
+    if (!key) return;
+
     setFormValue({
       ...formValue,
-      [target.name]: target.value,
+      [key]: target.value,
     });
   };
 
-  function closeModal() {
-    window.location.reload(true);
-    handleModal();
-    setIsOpen(false);
-  }
-
   const fnheandleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(`https://apiharry.herokuapp.com/characteres`, [formValue][0])
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
+    axios.post("https://apiharry.herokuapp.com/characteres", formValue);
     closeModal();
   };
 
@@ -71,7 +62,12 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
   }
 
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles} closeTimeoutMS={200}>
+    <Modal
+      isOpen={modalIsOpen}
+      style={customStyles}
+      closeTimeoutMS={200}
+      ariaHideApp={false}
+    >
       <div className="box-btn-close">
         <button type="button" className="closeButton" onClick={closeModal}>
           X
@@ -144,7 +140,7 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
                     onChange={EventInputChange}
                     value="female"
                   />
-                  <label htmlFor="female">Mujer </label>
+                  <label htmlFor="female">Mujer</label>
                 </div>
 
                 <div className="raw-item btn-radio">
@@ -191,6 +187,7 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
           <div className="raw-item input-file">
             <label htmlFor="image">FOTOGRAFIA </label>
             <input
+              data-testid="upload-profile-image"
               type="file"
               id="image"
               name="image"
@@ -206,5 +203,3 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
     </Modal>
   );
 };
-
-export default ModalCharacter;

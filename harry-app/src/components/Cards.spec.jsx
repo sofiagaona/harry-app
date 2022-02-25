@@ -5,16 +5,9 @@ import { render, screen, userEvent } from "../config/test-utils";
 import { Cards } from "./Cards";
 
 describe("Cards", () => {
-  const staffs = DATA_MOCK.characteres.filter(
-    ({ hogwartsStaff }) => !!hogwartsStaff
-  );
   const students = DATA_MOCK.characteres.filter(
     ({ hogwartsStudent }) => !!hogwartsStudent
   );
-
-  it("should render <Card /> component", () => {
-    render(<Cards list={students} />);
-  });
 
   describe("add favorite button", () => {
     let swalSpy;
@@ -30,7 +23,7 @@ describe("Cards", () => {
     });
 
     it("should throw modal when try to add more than 5 favorites", async () => {
-      render(<Cards list={staffs} />, {
+      render(<Cards list={students} />, {
         preloadedState: {
           favorite: students.slice(0, 5),
         },
@@ -45,8 +38,25 @@ describe("Cards", () => {
       });
     });
 
+    it("should throw modal when try to add a duplicated favorite character", async () => {
+      render(<Cards list={students} />, {
+        preloadedState: {
+          favorite: [students[0]],
+        },
+      });
+
+      const [fistCharacter] = screen.queryAllByAltText(/add favorite/i);
+      userEvent.click(fistCharacter);
+
+      expect(swalSpy).toHaveBeenCalledWith({
+        icon: "error",
+        title: "Oops...",
+        text: "No se permiten más de 5 personajes en la lista, o personajes duplicados, verifica tu lista!",
+      });
+    });
+
     it("should not throw modal when favorites are less than 5", async () => {
-      render(<Cards list={staffs} />);
+      render(<Cards list={students} />);
 
       clickLastAddFavoriteButton();
 

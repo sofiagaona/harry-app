@@ -7,23 +7,23 @@ import Swal from "sweetalert2";
 import Rectangule1 from "../assets/Rectangle1.png";
 import addCharacter from "../assets/User_fill_add.png";
 import "./Menu.scss";
-import ModalAddCharacter from "./ModalAddCharacter";
+import { ModalAddCharacter } from "./ModalAddCharacter";
 import trash from "../assets/Trash.png";
 
 export const Menu = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorite);
-  
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModal] = useState(false);
 
+  const openModal = () => {
+    setModal(true);
+  };
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function handleModal() {
-    setIsOpen(false);
-  }
+  const closeModal = async () => {
+    await setModal(false);
+    // NOTE: this monkey-patch allow to hide correctly the mod
+    await setModal(false);
+  };
 
   function delateFavorite(name) {
     const deleteCharacter = {
@@ -87,7 +87,10 @@ export const Menu = () => {
                 <img src={addCharacter} alt="" />{" "}
               </span>
               {modalIsOpen && (
-                <ModalAddCharacter isVisible={modalIsOpen} handleModal={handleModal} />
+                <ModalAddCharacter
+                  modalIsOpen={modalIsOpen}
+                  closeModal={closeModal}
+                />
               )}
             </button>
           </li>

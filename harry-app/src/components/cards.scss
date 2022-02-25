@@ -1,165 +1,154 @@
+$size-text: 0.7em;
 
-$size-text:.7em;
 .card {
-    display: -webkit-flex;
-	display: flex;
-    -webkit-flex-direction: row;
-	flex-direction: row;
-    width: 70%;
-    margin-top: 5%;
-    
-    
- }
- .card-1{
-    display: -webkit-flex;
-	display: flex;
-    -webkit-flex-direction: row;
-	flex-direction: row;
-    width: 100%;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    flex-wrap: wrap;
- }
- .card-col{
-     display: flex;
-     flex-direction: column;
-   
- }
-
- .card-col1{
-   width: 40%;
- 
-}
-.card-col2{
-    width: 50%;
- }
-
- .card__pic{
-     display: flex;
-     flex-direction: column;
-     width: 50%;
-     height: 200px;
-     justify-content: center;
-     align-items: center;
-     border-bottom-left-radius: 5%;
-     border-top-left-radius: 5%;
- }
-
- .slytherin{
-     background: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
- }
-
- .gryffindor{
-    background:linear-gradient(135deg, #FF0000 0%, #FED482 100%);
- }
-
- .hufflepuff{
-    background:linear-gradient(135deg, #FFC700 0%, #FFF388 100%) ;
- }
-
- .ravenclaw{
-    background: linear-gradient(135deg, #0597B7 0%, #66D1FF 100%);;
- }
-
-
- .card__info{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background: #FFFFFF;
-    border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%;
-    padding: 5%;
-    color: hsla(207, 72%, 11%, 1);
-  
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 70%;
+  margin-top: 5%;
 }
 
-.header_info{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5%;
-    font-size: $size-text;
+.card-1 {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  flex-wrap: wrap;
 }
-.dead{
-    background: #CCCCCC;
+
+.card-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-col1 {
+  width: 40%;
+}
+
+.card-col2 {
+  width: 50%;
+}
+
+.card__pic {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+.slytherin {
+  background: linear-gradient(135deg, #1c792b 0%, #82e95e 100%);
+}
+
+.gryffindor {
+  background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
+}
+
+.hufflepuff {
+  background: linear-gradient(135deg, #ffc700 0%, #fff388 100%);
+}
+
+.ravenclaw {
+  background: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background: #ffffff;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+  padding: 5%;
+  color: hsla(207, 72%, 11%, 1);
+}
+
+.header_info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  font-size: $size-text;
+}
+.dead {
+  background: #cccccc;
 }
 
 .card__info h3 {
-    margin-top: 5%;
-   
+  margin-top: 5%;
 }
 
-.card__pic> img{
-         width: 50%;
-         height: 40%;
-         border-radius: 50%;
-        
-     }
-.box-info{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20%;
-    font-size: $size-text;
-    font-weight: bold;
-}  
-  
-.box-info>p>span{
-    font-weight: lighter;
+.card__pic > img {
+  width: 50%;
+  height: 40%;
+  border-radius: 50%;
+}
+.box-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+  font-size: $size-text;
+  font-weight: bold;
+}
+
+.box-info > p > span {
+  font-weight: lighter;
 }
 
 $small: 600px;
 $medium: 900px;
-$xsmal:100px;
+$xsmal: 100px;
 
+@media screen and (max-width: $small) and (min-width: $xsmal) {
+  .card {
+    flex-direction: column;
+    margin-top: 5%;
+  }
 
-  
-    @media screen and (max-width: $small) and (min-width: $xsmal) {
-           
-        .card {
-            flex-direction:column;
-            margin-top: 5%;
-        }
-        .card__pic{
-            width: 90%;
-            height: 100px;
-            border-bottom-left-radius: 0%;
-            border-top-left-radius: 5%;
-            border-top-right-radius: 5%;
-        }
-        .card__info{
-            
-            width: 80%;
-            background: #FFFFFF;
-            border-top-right-radius: 0%;
-            border-bottom-right-radius: 5%;
-            border-bottom-left-radius: 5%;
-            padding: 5%;
-            color: hsla(207, 72%, 11%, 1);
-          
-        }
-        .card__pic> img{
-            width: 60%;
-            height: 70%;
-            border-radius: 50%;
-           
-        }
-    }
-    @media screen and (max-width: $medium )and (min-width: $small){
-     
-        .card__pic{
-            width: 50%;
-            height: 170px;
-        }
+  .card__pic {
+    width: 90%;
+    height: 100px;
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+  }
 
-        .header_info{
-            font-size: .6rem;
-        }
+  .card__info {
+    width: 80%;
+    background: #ffffff;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+    padding: 5%;
+    color: hsla(207, 72%, 11%, 1);
+  }
 
-        .box-info{
-            font-size: .6rem;
-        } 
+  .card__pic > img {
+    width: 60%;
+    height: 70%;
+    border-radius: 50%;
+  }
+}
 
-       
-      
-    }
+@media screen and (max-width: $medium) and (min-width: $small) {
+  .card__pic {
+    width: 50%;
+    height: 170px;
+  }
+
+  .header_info {
+    font-size: 0.6rem;
+  }
+
+  .box-info {
+    font-size: 0.6rem;
+  }
+}
