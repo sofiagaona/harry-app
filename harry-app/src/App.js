@@ -4,7 +4,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./App.scss";
 import { Menu } from "./components/Menu";
 import title from "./assets/Harry_Potter_wordmark1.png";
-import { Filter } from "./components/filter";
+import { Filter } from "./components/Filter";
 
 import { store, persistor } from "./store/store";
 

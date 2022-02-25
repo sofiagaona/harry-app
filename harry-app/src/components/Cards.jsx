@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import uniqid from "uniqid";
 import "./cards.scss";
 import Rectangule1 from "../assets/Rectangle 1.svg";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,27 +9,19 @@ export const Cards = ({ list }) => {
   let position = "";
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => {
-    return state;
-  });
-
-  const dataFavorites = data["favorite"];
-
-  useEffect(() => {
-    localStorage.setItem("favorite", JSON.stringify(data));
-  }, [data]);
+  const favorites = useSelector((state) => state.favorite);
 
   if (list[0] !== undefined) {
     let staff = list[0].hogwartsStaff;
     staff ? (position = "Staff") : (position = "Student");
   }
 
-  const handeleFavorite = (name, image) => {
-    let duplicado = dataFavorites.filter((favorite) => {
+  const handleFavorite = (name, image) => {
+    let duplicado = favorites.filter((favorite) => {
       return favorite.name === name;
     });
 
-    if (dataFavorites.length <= 4 && duplicado.length === 0) {
+    if (favorites.length <= 4 && duplicado.length === 0) {
       const newFavorite = {
         img: image,
         name: name,
@@ -52,9 +45,9 @@ export const Cards = ({ list }) => {
   return (
     <>
       <ul>
-        <div class="card-1">
+        <div className="card-1">
           {list.map((character) => (
-            <div className="card-col2">
+            <div key={uniqid()} className="card-col2">
               <li key={character.name}>
                 <div className="card">
                   {character.house === "Slytherin" ? (
@@ -100,9 +93,10 @@ export const Cards = ({ list }) => {
                         <div>
                           <img
                             onClick={() => {
-                              handeleFavorite(character.name, character.image);
+                              handleFavorite(character.name, character.image);
                             }}
                             src={Rectangule1}
+                            alt=""
                           />
                         </div>
                       </div>
@@ -133,9 +127,10 @@ export const Cards = ({ list }) => {
                           <img
                             id="btn-add-favorite"
                             onClick={() => {
-                              handeleFavorite(character.name, character.image);
+                              handleFavorite(character.name, character.image);
                             }}
                             src={Rectangule1}
+                            alt=""
                           />
                         </div>
                       </div>

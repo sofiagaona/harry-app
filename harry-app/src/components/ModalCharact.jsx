@@ -4,7 +4,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 
 import "./ModalAddCharacter.scss";
-import { getBase64 } from '../utils/getBase64/getBase64'
+import { getBase64 } from "../utils/getBase64/getBase64";
 
 const customStyles = {
   content: {
