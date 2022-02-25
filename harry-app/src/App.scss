@@ -1,5 +1,5 @@
 
-$font-stack: Open Sans, Helvetica, sans-serif;
+$font-stack: Open Sans;
 $background-color:rgba(0, 0, 0, 0.799);
 $colorText:hsla(0, 0%, 100%, 1);
 body {
@@ -9,6 +9,7 @@ body {
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+    font-size: $font-stack
    
   }
 

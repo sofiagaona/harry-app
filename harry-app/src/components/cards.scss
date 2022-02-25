@@ -1,11 +1,11 @@
-$size-text: 0.7em;
+$size-text: .8em;
 
 .card {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  width: 70%;
+  width: 50%;
   margin-top: 5%;
 }
 
@@ -135,6 +135,10 @@ $xsmal: 100px;
     width: 60%;
     height: 70%;
     border-radius: 50%;
+  }
+
+  .box-info{
+    display: none;
   }
 }
 

@@ -71,7 +71,6 @@ export const Filter = () => {
             setClick(1);
           }}
         >
-          {" "}
           Staff
         </button>
       </section>
