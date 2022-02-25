@@ -5,10 +5,12 @@ $bttn-Active: #6b63b5;
 .flex-filter {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:center;
+  
 }
 
 #btn-filter {
+  margin-left: 5%;
   margin-right: 5%;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
