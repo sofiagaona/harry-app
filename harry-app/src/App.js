@@ -10,7 +10,7 @@ import { store } from './store/store';
 
 function App() {
   return (
-    <>
+    <div>
       <div className="title">
         <img src={title} alt="titulo Harry Potter"></img>
         <h2>Selecciona tu filtro</h2>
@@ -19,9 +19,9 @@ function App() {
         <Menu/>
         <Filter/>
      </Provider>
-  
+     </div>
    
-    </>
+   
   )
 }
 

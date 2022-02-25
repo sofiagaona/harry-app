@@ -12,12 +12,12 @@ import Swal from 'sweetalert2'
 
 
 const init=()=>{
-  return JSON.parse(localStorage.getItem("favorite")) || [];
+  return JSON.parse(localStorage.getItem("data")) || [];
  }
 
 export const Menu = () => {
 
-  const [state] = useReducer(favoriteReducer,[],init);
+  const [state] = useReducer(favoriteReducer,init);
   const dispatche=useDispatch();
   const data = useSelector(state=>{
     return state
@@ -26,8 +26,8 @@ export const Menu = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(()=>{
-    localStorage.setItem("favorite", JSON.stringify(data));
-   },[data])
+     localStorage.setItem("data", JSON.stringify(data));
+    },[data])
     
   function openModal() {
     setIsOpen(true);

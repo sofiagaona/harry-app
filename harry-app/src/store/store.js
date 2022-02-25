@@ -1,3 +1,4 @@
+
 import { createStore, combineReducers } from "redux";
 import { favoriteReducer } from "../reducers/favoriteReducer";
 
@@ -6,3 +7,7 @@ const reducers = combineReducers({
 })
 
 export const store = createStore(reducers);
+
+//localStorage.setItem("dataFavorite", JSON.stringify(favoriteReducer));
+   
+ 
