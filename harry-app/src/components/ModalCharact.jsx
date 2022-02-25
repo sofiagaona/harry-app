@@ -1,173 +1,209 @@
-import React, { useState } from "react"
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import Modal from "react-modal";
 import axios from "axios";
-import uniqid from 'uniqid';
-import './ModalAddCharacter.scss';
+import uniqid from "uniqid";
+
+import "./ModalAddCharacter.scss";
+import { getBase64 } from '../utils/getBase64/getBase64'
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
+Modal.setAppElement("#root");
 
-Modal.setAppElement('#root');
+const ModalCharacter = ({ isVisible, handleModal }) => {
+  const [modalIsOpen, setIsOpen] = useState(isVisible);
+  const [formValue, setFormValue] = useState({
+    id: uniqid(),
+    name: "",
+    dateOfBirth: "",
+    eyeColour: "",
+    hairColour: "",
+    gender: "",
+    hogwartsStudent: "",
+    hogwartsStaff: "",
+    image: "",
+    house: "",
+    alive: "",
+  });
 
-const ModalCharacter=( {isVisible, handleModal} )=>{
-    const [modalIsOpen, setIsOpen] = useState(isVisible);  
-    const [formValue, setFormValue]= useState({
-        "id":uniqid (),
-        "name":"",
-        "dateOfBirth":"",
-        "eyeColour":"",
-        "hairColour":"",
-        "gender":"",
-        "hogwartsStudent":"",
-        "hogwartsStaff": "",
-        "image":"",
-        "house":"",
-        "alive":""
-    })
+  const EventInputChange = ({ target }) => {
+    setFormValue({
+      ...formValue,
+      [target.name]: target.value,
+    });
+  };
 
-    const [fileUrl, setFileUrl] = useState(null);
-    console.log(fileUrl)
+  function closeModal() {
+    window.location.reload(true);
+    handleModal();
+    setIsOpen(false);
+  }
 
-    const EventInputChange=({target})=>{
-         setFormValue({
-             ...formValue,
-             [target.name]:target.value
-         })
-    }
-
-    function closeModal() {
-      window.location.reload(true);
-        handleModal();
-        setIsOpen(false);
-       
-      }
-
-  const fnheandleSubmit =  (e) => {
-        e.preventDefault();
-        console.log(formValue);
-        axios.post(` https://apiharry.herokuapp.com/characteres`, [formValue][0])
-      .then(res => {
+  const fnheandleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(` https://apiharry.herokuapp.com/characteres`, [formValue][0])
+      .then((res) => {
         console.log(res);
         console.log(res.data);
-      })
-      window.location.reload(true);
-      closeModal();
-        
-      };
+      });
+    window.location.reload(true);
+    closeModal();
+  };
 
-      function processImage(event){
-         const imageFile = event.target.files[0];
-         console.log(imageFile.name);
-         const imageUrl = URL.createObjectURL(imageFile);
-         setFileUrl(imageUrl)
-      }
- 
- return (
-    <Modal
-    isOpen={modalIsOpen}
-    style={ customStyles }
-    closeTimeoutMS={200}
-  >
-    
-    <div className="box-btn-close">
-       <button type="button" className="closeButton" onClick={closeModal}>X</button>
-    </div>
-   
-    <form  action="" onSubmit={fnheandleSubmit}>
-              <div className="modal">
-                  <div className="raw-item">
-                 <label>NOMBRE:
-                    <input type="text" name="name" onChange={EventInputChange} />
-                 </label>
-                 <label>CUMPLEAÑOS:
-                    <input type="text" name="dateOfBirth" onChange={EventInputChange} />
-                    
-                 </label>
-                 </div>
-              </div>
-               <div className="modal">
-               <div className="raw-item">
-                  <label>COLOR DE OJOS:
-                      <input type="text" name="eyeColour" onChange={EventInputChange} />
-                  </label>
-                  <label>COLOR DE PELO:
-                      <input type="text" name="hairColour" onChange={EventInputChange}/>
-                  </label>
-                  </div>
-              </div>
-              <div className="modal">
-               <div className="raw-item">
-                  <label> Casa:
-                  <select  name="house" onClick={EventInputChange}>
-                       <option  value="Hogwarts">Hogwarts</option>
-                       <option value="Hufflepuff">Hufflepuff</option>
-                       <option value="Revendaw">Revendaw</option>
-                       <option value="Slytherin">Slytherin</option>
-                   </select>
-                  </label>
-                  <label>Vivo:
-                  <select name="alive" onClick={EventInputChange}>
-                       <option value={true}>Si</option>
-                       <option   value={false}>No</option>
-                      
-                   </select>
-                  </label>
-                  </div>
-              </div>
-              <div className="modal">
-               <div className="raw-item">
-                  <label>GENERO:
-                   <div className="raw-item" >   
-                    <div className="raw-item btn-radio">
-                       <input type="radio" id="female" name="gender" onChange={EventInputChange} value="female"  />
-                       <label  htmlFor="female">Mujer </label>
-                    </div>
+  async function processImage(event) {
+    const imageFile = event.target.files[0];
+    const base64Image = await getBase64(imageFile);
 
-                       <div className="raw-item btn-radio">
-                           <input type="radio" id="male" name="gender" onChange={EventInputChange} value="male" /> 
-                           <label htmlFor="male">Hombre</label>  
-                        </div>
-                  </div>
-                  </label>
-                  <label>POSICION:
-                   
-                  <div className="raw-item" >   
-                    <div className="raw-item btn-radio">
-                       <input type="radio" id="student" name="hogwartsStudent" onChange={EventInputChange} value={true}  />
-                       <label  htmlFor="student">Estudiante </label>
-                    </div>
+    setFormValue({
+      ...formValue,
+      image: base64Image,
+    });
+  }
 
-                       <div className="raw-item btn-radio">
-                           <input type="radio" id="staff" name="hogwartsStaff" onChange={EventInputChange} value={true} /> 
-                           <label htmlFor="staff">Staff</label>  
-                        </div>
-                  </div>
-                  
-                  </label>
-                  </div>
+  return (
+    <Modal isOpen={modalIsOpen} style={customStyles} closeTimeoutMS={200}>
+      <div className="box-btn-close">
+        <button type="button" className="closeButton" onClick={closeModal}>
+          X
+        </button>
+      </div>
+
+      <form action="" onSubmit={fnheandleSubmit}>
+        <div className="modal">
+          <div className="raw-item">
+            <label>
+              NOMBRE:
+              <input type="text" name="name" onChange={EventInputChange} />
+            </label>
+            <label>
+              CUMPLEAÑOS:
+              <input
+                type="text"
+                name="dateOfBirth"
+                onChange={EventInputChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="modal">
+          <div className="raw-item">
+            <label>
+              COLOR DE OJOS:
+              <input type="text" name="eyeColour" onChange={EventInputChange} />
+            </label>
+            <label>
+              COLOR DE PELO:
+              <input
+                type="text"
+                name="hairColour"
+                onChange={EventInputChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="modal">
+          <div className="raw-item">
+            <label>
+              Casa:
+              <select name="house" onClick={EventInputChange}>
+                <option value="Hogwarts">Hogwarts</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+                <option value="Revendaw">Revendaw</option>
+                <option value="Slytherin">Slytherin</option>
+              </select>
+            </label>
+            <label>
+              Vivo:
+              <select name="alive" onClick={EventInputChange}>
+                <option value={true}>Si</option>
+                <option value={false}>No</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div className="modal">
+          <div className="raw-item">
+            <label>
+              GENERO:
+              <div className="raw-item">
+                <div className="raw-item btn-radio">
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    onChange={EventInputChange}
+                    value="female"
+                  />
+                  <label htmlFor="female">Mujer </label>
+                </div>
+
+                <div className="raw-item btn-radio">
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    onChange={EventInputChange}
+                    value="male"
+                  />
+                  <label htmlFor="male">Hombre</label>
+                </div>
               </div>
-               <div className="modal">
-                   <div className="raw-item input-file">
-                       <label  htmlFor="image">FOTOGRAFIA </label>
-                       <input type="file" id="image" name="image" accept="image/png"   onChange={processImage}/>
-                    </div>
-               </div>
-               <div className="btn-submit">
-                    <button type="submit">GUARDAR</button>
-               </div>
-            </form>
-  
-  </Modal>
- )
+            </label>
+            <label>
+              POSICION:
+              <div className="raw-item">
+                <div className="raw-item btn-radio">
+                  <input
+                    type="radio"
+                    id="student"
+                    name="hogwartsStudent"
+                    onChange={EventInputChange}
+                    value={true}
+                  />
+                  <label htmlFor="student">Estudiante </label>
+                </div>
 
-}
+                <div className="raw-item btn-radio">
+                  <input
+                    type="radio"
+                    id="staff"
+                    name="hogwartsStaff"
+                    onChange={EventInputChange}
+                    value={true}
+                  />
+                  <label htmlFor="staff">Staff</label>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div className="modal">
+          <div className="raw-item input-file">
+            <label htmlFor="image">FOTOGRAFIA </label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/png"
+              onChange={processImage}
+            />
+          </div>
+        </div>
+        <div className="btn-submit">
+          <button type="submit">GUARDAR</button>
+        </div>
+      </form>
+    </Modal>
+  );
+};
 export default ModalCharacter;
