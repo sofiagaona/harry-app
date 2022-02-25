@@ -96,7 +96,7 @@ export const Cards = ({ list }) => {
                               handleFavorite(character.name, character.image);
                             }}
                             src={Rectangule1}
-                            alt=""
+                            alt="add favorite"
                           />
                         </div>
                       </div>
@@ -125,12 +125,11 @@ export const Cards = ({ list }) => {
 
                         <div>
                           <img
-                            id="btn-add-favorite"
                             onClick={() => {
                               handleFavorite(character.name, character.image);
                             }}
                             src={Rectangule1}
-                            alt=""
+                            alt="add favorite"
                           />
                         </div>
                       </div>
