@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import Rectangule1 from "../assets/Rectangle1.png";
 import addCharacter from "../assets/User_fill_add.png";
 import "./Menu.scss";
-import Modal from "./ModalCharact";
+import ModalAddCharacter from "./ModalAddCharacter";
 import trash from "../assets/Trash.png";
 
 export const Menu = () => {
@@ -87,7 +87,7 @@ export const Menu = () => {
                 <img src={addCharacter} alt="" />{" "}
               </span>
               {modalIsOpen && (
-                <Modal isVisible={modalIsOpen} handleModal={handleModal} />
+                <ModalAddCharacter isVisible={modalIsOpen} handleModal={handleModal} />
               )}
             </button>
           </li>

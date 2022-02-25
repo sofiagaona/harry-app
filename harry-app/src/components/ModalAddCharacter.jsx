@@ -17,7 +17,8 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
+
 
 const ModalCharacter = ({ isVisible, handleModal }) => {
   const [modalIsOpen, setIsOpen] = useState(isVisible);
@@ -51,12 +52,11 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
   const fnheandleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(` https://apiharry.herokuapp.com/characteres`, [formValue][0])
+      .post(`https://apiharry.herokuapp.com/characteres`, [formValue][0])
       .then((res) => {
         console.log(res);
         console.log(res.data);
       });
-    window.location.reload(true);
     closeModal();
   };
 
@@ -206,4 +206,5 @@ const ModalCharacter = ({ isVisible, handleModal }) => {
     </Modal>
   );
 };
+
 export default ModalCharacter;
