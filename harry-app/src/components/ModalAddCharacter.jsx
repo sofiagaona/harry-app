@@ -4,6 +4,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 
 import "./ModalAddCharacter.scss";
+import Swal from 'sweetalert2';
 import { getBase64 } from "../utils/getBase64/getBase64";
 
 const customStyles = {
@@ -48,7 +49,10 @@ export const ModalAddCharacter = ({ modalIsOpen, closeModal }) => {
   const fnheandleSubmit = (e) => {
     e.preventDefault();
     axios.post("https://apiharry.herokuapp.com/characteres", formValue);
+
     closeModal();
+    alert('se ha creado con éxito el personaje')
+    window.location.reload(true);
   };
 
   async function processImage(event) {
