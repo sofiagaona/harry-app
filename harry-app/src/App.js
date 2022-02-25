@@ -1,28 +1,28 @@
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-import './App.scss';
-import { Menu } from './components/Menu';
-import title from './assets/Harry_Potter_wordmark1.png';
-import { Filter } from './components/filter';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import "./App.scss";
+import { Menu } from "./components/Menu";
+import title from "./assets/Harry_Potter_wordmark1.png";
+import { Filter } from "./components/filter";
 
+import { store, persistor } from "./store/store";
 
-
-function App() {
+const App = () => {
   return (
     <div>
       <div className="title">
-        <img src={title} alt="titulo Harry Potter"></img>
+        <img src={title} alt="titulo Harry Potter" />
         <h2>Selecciona tu filtro</h2>
       </div>
       <Provider store={store}>
-        <Menu/>
-        <Filter/>
-     </Provider>
-     </div>
-   
-   
-  )
-}
+        <PersistGate loading={null} persistor={persistor}>
+          <Menu />
+          <Filter />
+        </PersistGate>
+      </Provider>
+    </div>
+  );
+};
 
 export default App;

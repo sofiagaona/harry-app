@@ -1,13 +1,22 @@
 
 import { createStore, combineReducers } from "redux";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import { favoriteReducer } from "../reducers/favoriteReducer";
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
     favorite: favoriteReducer
 })
 
-export const store = createStore(reducers);
+const persistedReducer = persistReducer({
+  key: 'root',
+  storage,
+  whitelist: ['favorite']
+}, rootReducer)
 
-//localStorage.setItem("dataFavorite", JSON.stringify(favoriteReducer));
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);
+
    
  
