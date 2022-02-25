@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage'
 
 import { favoriteReducer } from "../reducers/favoriteReducer";
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     favorite: favoriteReducer
 })
 
